@@ -1,9 +1,9 @@
 <template>
   <nav>
     <div class="main-nav">
-      <Logo />
+      <Logo @toggleNav="toggleNavCallback" />
       <div class="links-container">
-        <ul class="links">
+        <ul class="links" ref="navBarLinks">
           <li v-for="route in routes" :key="route.path">
             <router-link :to="route.path">{{ route.name }}</router-link>
           </li>
@@ -32,6 +32,13 @@ export default {
     return {
       routes,
     };
+  },
+  methods: {
+    toggleNavCallback() {
+      const display = this.$refs.navBarLinks.style.display;
+      this.$refs.navBarLinks.style.display =
+        display === "block" ? "none" : "block";
+    },
   },
 };
 </script>

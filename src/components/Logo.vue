@@ -3,14 +3,20 @@
     <router-link :to="{ name: 'home' }">
       <h1 class="logo">Pizzeria grande</h1>
     </router-link>
-    <button class="nav-toggle">
+    <button class="nav-toggle" @click="toggleNav">
       <font-awesome-icon icon="fa-solid fa-bars" />
     </button>
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+  methods: {
+    toggleNav(event) {
+      this.$emit("toggleNav");
+    },
+  },
+};
 </script>
 
 <style>
