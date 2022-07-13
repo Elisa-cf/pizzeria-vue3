@@ -1,4 +1,5 @@
 <template>
+  <hr />
   <div class="newsletter-wrapper">
     <h2>Join our newsletter. Exclusive offers!</h2>
     <div className="content">
@@ -78,6 +79,12 @@ p {
 .submit-btn:hover {
   background-color: #ffc500;
   color: #0b1015;
+}
+
+hr {
+  border-top: 1px solid black;
+  width: 20%;
+  margin: 1.5rem auto 0;
 }
 @media (min-width: 900px) {
   .content {

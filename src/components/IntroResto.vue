@@ -36,7 +36,7 @@
 </template>
 
 <script>
-import Button from "./Button.vue";
+import Button from "./ReusableButton.vue";
 
 export default {
   name: "IntroResto",
@@ -76,6 +76,7 @@ p {
   object-fit: cover;
   margin: 2rem 0rem;
 }
+
 @media (min-width: 900px) {
   .article-wrapper {
     align-items: center;
