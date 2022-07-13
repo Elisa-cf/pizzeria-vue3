@@ -1,6 +1,6 @@
 <template>
   <HeroHeader />
-  <Quote />
+  <Quote name="Elisa" age="15" />
   <IntroResto />
 </template>
 

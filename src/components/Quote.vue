@@ -1,16 +1,36 @@
 <template>
   <section class="wrapper-quote">
     <blockquote>
-      I had a dream, to bring back the flavours, sensations and smells of
-      southern of Italy to Munich
+      {{ formatedName }}: I had a dream, to bring back the flavours, sensations
+      and smells of southern of Italy to Munich {{ formatedName }},
+      {{ formatedName }}, {{ formatedName }}, {{ formatedName }}
     </blockquote>
     <hr />
   </section>
 </template>
 
 <script>
-export default {};
+// we want:
+//   if age > 20: "E-L-I-S-A"
+//   else: E.L.I.S.A
+
+export default {
+  props: ["name", "age"],
+  computed: {
+    formatedName() {
+      const splitName = this.name.split("");
+      const age = parseInt(this.age, 10);
+      console.log(splitName, age);
+      if (age > 20) {
+        return splitName.join("-");
+      } else {
+        return splitName.join(".");
+      }
+    },
+  },
+};
 </script>
+
 
 <style scoped>
 /* quote content start */
