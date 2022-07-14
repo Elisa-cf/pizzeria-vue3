@@ -3,14 +3,46 @@
     <h2>our menu</h2>
     <div class="underline"></div>
   </div>
-  <div class="btn-container">
-    <button class="filter-btn">button</button>
-  </div>
+  <label for="search"
+    >Search
+    <input type="text" id="search" v-model="term" @keyup.enter="search(term)" />
+    <!-- <input
+      type="text"
+      id="search"
+      v-model="term"
+      @keyup.enter="filteredCategories('search', term)"
+    /> -->
+  </label>
+
+  <section class="btn-container">
+    <div
+      v-for="filter in filters"
+      :key="filter"
+      @click="() => filterCategories(filter)"
+    >
+      <!-- <div
+      v-for="filter in filters"
+      :key="filter"
+      @click="() => filteredCategories('filter', filter)"
+    > -->
+      <button class="filter-btn">
+        {{ filter }}
+      </button>
+    </div>
+  </section>
 </template>
 
 <script>
+const filters = ["All", "pizzas", "starters", "desserts", "drinks"];
 export default {
   name: "MenuCategoryFilter",
+  props: ["filterCategories", "search", "filteredCategories"],
+  data() {
+    return {
+      filters,
+      term: "",
+    };
+  },
 };
 </script>
 
@@ -61,6 +93,10 @@ h2 {
 
 .filter-btn:hover {
   background: #03c03c;
+  color: white;
+}
+.active {
+  background: red;
   color: white;
 }
 </style>

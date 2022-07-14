@@ -1,14 +1,18 @@
 <template>
-  <section v-for="menu in menus" :key="menu.id" class="section-center">
+  <section
+    v-for="cardMenu in cardsMenu"
+    :key="cardMenu.id"
+    class="section-center"
+  >
     <article class="menu-item">
-      <img :src="menu.img" class="photo" />
+      <img :src="cardMenu.img" class="photo" />
       <div class="item-info">
         <header>
-          <h4>{{ menu.title }}</h4>
-          <h4 class="price">{{ menu.price }}€</h4>
+          <h4>{{ cardMenu.title }}</h4>
+          <h4 class="price">{{ cardMenu.price }}€</h4>
         </header>
         <p class="item-text">
-          {{ menu.desc }}
+          {{ cardMenu.desc }}
         </p>
       </div>
       <button>Add To Cart</button>
@@ -17,15 +21,13 @@
 </template>
 
 <script>
-import data from "../assets/data.js";
 export default {
   name: "MenuCards",
-  components: {},
+  props: ["cardsMenu"],
   data() {
     return {
       pizzeriaImage6:
         "https://cdn.pixabay.com/photo/2017/12/05/20/10/pizza-3000285__480.png",
-      menus: data,
     };
   },
 };
