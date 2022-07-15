@@ -26,11 +26,8 @@ export default {
       cardsMenu: data,
     };
   },
-  /*str: "",
-      type: "",
-    };
-  },
-  computed: {
+
+  /* computed: {
     filteredCategories: {
       get() {
         return this.cardsMenu;
@@ -50,6 +47,7 @@ export default {
       },
     },
   },*/
+
   methods: {
     filterCategories(catName) {
       this.resetCardsMenu();

@@ -3,16 +3,23 @@
     <h2>our menu</h2>
     <div class="underline"></div>
   </div>
-  <label for="search"
-    >Search
-    <input type="text" id="search" v-model="term" @keyup.enter="search(term)" />
+
+  <div class="search">
+    <input
+      type="text"
+      class="search-input"
+      placeholder="What do you want to eat?"
+      v-model="term"
+      @keyup.enter="search(term)"
+    />
+
     <!-- <input
       type="text"
       id="search"
       v-model="term"
       @keyup.enter="filteredCategories('search', term)"
     /> -->
-  </label>
+  </div>
 
   <section class="btn-container">
     <div
@@ -95,8 +102,20 @@ h2 {
   background: #03c03c;
   color: white;
 }
-.active {
+/* .active {
   background: red;
   color: white;
+} */
+
+.search {
+  display: flex;
+  justify-content: center;
+}
+
+.search-input {
+  width: 70%;
+  margin: 2.5rem 1rem;
+  padding: 6px 6px;
+  font-size: 15px;
 }
 </style>

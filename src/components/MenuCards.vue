@@ -1,28 +1,30 @@
 <template>
-  <section
-    v-for="cardMenu in cardsMenu"
-    :key="cardMenu.id"
-    class="section-center"
-  >
-    <article class="menu-item">
-      <img :src="cardMenu.img" class="photo" />
-      <div class="item-info">
-        <header>
-          <h4>{{ cardMenu.title }}</h4>
-          <h4 class="price">{{ cardMenu.price }}€</h4>
-        </header>
-        <p class="item-text">
-          {{ cardMenu.desc }}
-        </p>
-      </div>
-      <button>Add To Cart</button>
-    </article>
-  </section>
+  <div class="section-center">
+    <section v-for="cardMenu in cardsMenu" :key="cardMenu.id">
+      <article class="menu-item">
+        <img :src="cardMenu.img" class="photo" />
+        <div class="item-info">
+          <header>
+            <h4>{{ cardMenu.title }}</h4>
+            <h4 class="price">{{ cardMenu.price }}€</h4>
+          </header>
+          <p class="item-text">
+            {{ cardMenu.desc }}
+          </p>
+        </div>
+        <AddToCartButton />
+      </article>
+    </section>
+  </div>
 </template>
 
 <script>
+import AddToCartButton from "../components/AddToCartButton.vue";
 export default {
   name: "MenuCards",
+  components: {
+    AddToCartButton,
+  },
   props: ["cardsMenu"],
   data() {
     return {
@@ -104,13 +106,18 @@ export default {
   .photo {
     height: 175px;
   }
+
+  h4 {
+    font-size: 1.5rem;
+    text-transform: capitalize;
+  }
 }
 
 @media screen and (min-width: 1200px) {
   .section-center {
     width: 95vw;
-    grid-template-columns: 2 1fr;
     gap: 3rem 2rem;
+    grid-template-columns: 1fr 1fr;
   }
 
   .menu-item {
