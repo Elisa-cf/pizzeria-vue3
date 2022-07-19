@@ -5,33 +5,33 @@
   </div>
 
   <div class="search">
-    <input
+    <!-- <input
       type="text"
       class="search-input"
       placeholder="What do you want to eat?"
       v-model="term"
       @keyup.enter="search(term)"
-    />
+    /> -->
 
-    <!-- <input
+    <input
       type="text"
       id="search"
       v-model="term"
       @keyup.enter="filteredCategories('search', term)"
-    /> -->
+    />
   </div>
 
   <section class="btn-container">
-    <div
+    <!-- <div
       v-for="filter in filters"
       :key="filter"
       @click="() => filterCategories(filter)"
-    >
-      <!-- <div
+    > -->
+    <div
       v-for="filter in filters"
       :key="filter"
       @click="() => filteredCategories('filter', filter)"
-    > -->
+    >
       <button class="filter-btn">
         {{ filter }}
       </button>

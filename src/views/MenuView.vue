@@ -1,13 +1,11 @@
 <template>
-  <MenuCategoryFilter
+  <!-- <MenuCategoryFilter
     :filterCategories="filterCategories"
     :search="search"
     filteredCategories="filteredCategories"
-  />
-  <MenuCards :cardsMenu="cardsMenu" />
-  <!-- <MenuCategoryFilter
-    filteredCategories="filteredCategories" 
   /> -->
+  <MenuCards :cardsMenu="cardsMenu" />
+  <MenuCategoryFilter filteredCategories="filteredCategories" />
   <!-- <MenuCards :cardsMenu="filteredCategories" /> -->
 </template>
 <script>
@@ -27,7 +25,7 @@ export default {
     };
   },
 
-  /* computed: {
+  computed: {
     filteredCategories: {
       get() {
         return this.cardsMenu;
@@ -46,9 +44,9 @@ export default {
         this.cardsMenu = results;
       },
     },
-  },*/
+  },
 
-  methods: {
+  /*methods: {
     filterCategories(catName) {
       this.resetCardsMenu();
       if (catName !== "All") {
@@ -66,7 +64,7 @@ export default {
     resetCardsMenu() {
       this.cardsMenu = data;
     },
-  },
+  },*/
 };
 </script>
 <style scoped>
