@@ -1,5 +1,5 @@
 import { createApp } from 'vue'
-
+import VueGoogleMaps from '@fawmi/vue-google-maps'
 
 import App from './App.vue'
 import router from './router'
@@ -23,6 +23,12 @@ import { faWhatsapp } from '@fortawesome/free-brands-svg-icons'
 library.add(faBars, faCartShopping, faUser, faLocationDot, faWhatsapp, faAt, faHeart)
 
 
-const app = createApp(App).use(router).component('font-awesome-icon', FontAwesomeIcon).mount('#app')
+//const app = createApp(App).use(router).component('font-awesome-icon', FontAwesomeIcon).mount('#app')
 
 
+const app = createApp(App).use(router, VueGoogleMaps, {
+    load: {
+        key: 'AIzaSyAagIVG4qFUjtBCyUtwPm0JKe4covbgeKI',
+        // language: 'de',
+    },
+}).component('font-awesome-icon', FontAwesomeIcon).mount('#app')

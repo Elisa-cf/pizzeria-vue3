@@ -8,48 +8,253 @@
       <h2>opening hours</h2>
       <h5>Monday to Friday: 13pm - 23:30pm</h5>
     </article>
-    <GoogleMap
-      api-key="AIzaSyAagIVG4qFUjtBCyUtwPm0JKe4covbgeKI"
-      style="width: 100%; height: 350px"
+    <GMapMap
       :center="center"
+      :options="options"
       :zoom="10"
-      ><Marker :options="markerOptions">
-        <InfoWindow>
-          <div id="contet">
-            <div id="siteNotice"></div>
-            <h4 id="firstHeading" class="firstHeading">
-              <a href="https://pizzeria-grande.netlify.app/">
-                Pizzeria Grande
-              </a>
-            </h4>
-            <div id="bodyContent">
-              <h6>Prielmayerstraße 5, 80335 Munich</h6>
-              <h6>+49 895 529 5867</h6>
-            </div>
-          </div>
-        </InfoWindow>
-      </Marker>
-    </GoogleMap>
+      map-type-id="terrain"
+      style="width: 100vw; height: 20rem"
+    >
+      <GMapCluster :zoomOnClick="true">
+        <GMapMarker
+          :key="index"
+          v-for="(m, index) in markers"
+          :position="m.position"
+          :clickable="true"
+          :draggable="true"
+          @click="center = m.position"
+        />
+      </GMapCluster>
+    </GMapMap>
   </section>
 </template>
 <script>
-import { defineComponent } from "vue";
-import { GoogleMap, Marker } from "vue3-google-map";
-
-export default defineComponent({
-  components: { GoogleMap, Marker },
-  setup() {
-    const center = { lat: 48.14066, lng: 11.56303 };
-    const markerOptions = {
-      position: center,
-      //label: "Pizza",
-      //title: "Grande",
-      //icon: "https://cdn-icons-png.flaticon.com/512/3132/3132693.png",
+export default {
+  data() {
+    return {
+      center: { lat: 51.093048, lng: 6.84212 },
+      options: {
+        styles: [
+          [
+            {
+              elementType: "geometry",
+              stylers: [
+                {
+                  color: "#ebe3cd",
+                },
+              ],
+            },
+            {
+              elementType: "labels.text.fill",
+              stylers: [
+                {
+                  color: "#523735",
+                },
+              ],
+            },
+            {
+              elementType: "labels.text.stroke",
+              stylers: [
+                {
+                  color: "#f5f1e6",
+                },
+              ],
+            },
+            {
+              featureType: "administrative",
+              elementType: "geometry.stroke",
+              stylers: [
+                {
+                  color: "#c9b2a6",
+                },
+              ],
+            },
+            {
+              featureType: "administrative.land_parcel",
+              elementType: "geometry.stroke",
+              stylers: [
+                {
+                  color: "#dcd2be",
+                },
+              ],
+            },
+            {
+              featureType: "administrative.land_parcel",
+              elementType: "labels.text.fill",
+              stylers: [
+                {
+                  color: "#ae9e90",
+                },
+              ],
+            },
+            {
+              featureType: "landscape.natural",
+              elementType: "geometry",
+              stylers: [
+                {
+                  color: "#dfd2ae",
+                },
+              ],
+            },
+            {
+              featureType: "poi",
+              elementType: "geometry",
+              stylers: [
+                {
+                  color: "#dfd2ae",
+                },
+              ],
+            },
+            {
+              featureType: "poi",
+              elementType: "labels.text.fill",
+              stylers: [
+                {
+                  color: "#93817c",
+                },
+              ],
+            },
+            {
+              featureType: "poi.park",
+              elementType: "geometry.fill",
+              stylers: [
+                {
+                  color: "#a5b076",
+                },
+              ],
+            },
+            {
+              featureType: "poi.park",
+              elementType: "labels.text.fill",
+              stylers: [
+                {
+                  color: "#447530",
+                },
+              ],
+            },
+            {
+              featureType: "road",
+              elementType: "geometry",
+              stylers: [
+                {
+                  color: "#f5f1e6",
+                },
+              ],
+            },
+            {
+              featureType: "road.arterial",
+              elementType: "geometry",
+              stylers: [
+                {
+                  color: "#fdfcf8",
+                },
+              ],
+            },
+            {
+              featureType: "road.highway",
+              elementType: "geometry",
+              stylers: [
+                {
+                  color: "#f8c967",
+                },
+              ],
+            },
+            {
+              featureType: "road.highway",
+              elementType: "geometry.stroke",
+              stylers: [
+                {
+                  color: "#e9bc62",
+                },
+              ],
+            },
+            {
+              featureType: "road.highway.controlled_access",
+              elementType: "geometry",
+              stylers: [
+                {
+                  color: "#e98d58",
+                },
+              ],
+            },
+            {
+              featureType: "road.highway.controlled_access",
+              elementType: "geometry.stroke",
+              stylers: [
+                {
+                  color: "#db8555",
+                },
+              ],
+            },
+            {
+              featureType: "road.local",
+              elementType: "labels.text.fill",
+              stylers: [
+                {
+                  color: "#806b63",
+                },
+              ],
+            },
+            {
+              featureType: "transit.line",
+              elementType: "geometry",
+              stylers: [
+                {
+                  color: "#dfd2ae",
+                },
+              ],
+            },
+            {
+              featureType: "transit.line",
+              elementType: "labels.text.fill",
+              stylers: [
+                {
+                  color: "#8f7d77",
+                },
+              ],
+            },
+            {
+              featureType: "transit.line",
+              elementType: "labels.text.stroke",
+              stylers: [
+                {
+                  color: "#ebe3cd",
+                },
+              ],
+            },
+            {
+              featureType: "transit.station",
+              elementType: "geometry",
+              stylers: [
+                {
+                  color: "#dfd2ae",
+                },
+              ],
+            },
+            {
+              featureType: "water",
+              elementType: "geometry.fill",
+              stylers: [
+                {
+                  color: "#b9d3c2",
+                },
+              ],
+            },
+            {
+              featureType: "water",
+              elementType: "labels.text.fill",
+              stylers: [
+                {
+                  color: "#92998d",
+                },
+              ],
+            },
+          ],
+        ],
+      },
     };
-
-    return { center, markerOptions };
   },
-});
+};
 </script>
 
 <style scoped>
