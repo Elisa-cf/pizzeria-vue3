@@ -1,11 +1,11 @@
 <template>
-  <!-- <MenuCategoryFilter
+  <MenuCategoryFilter
     :filterCategories="filterCategories"
     :search="search"
     filteredCategories="filteredCategories"
-  /> -->
+  />
   <MenuCards :cardsMenu="cardsMenu" />
-  <MenuCategoryFilter filteredCategories="filteredCategories" />
+  <!-- <MenuCategoryFilter filteredCategories="filteredCategories" /> -->
   <!-- <MenuCards :cardsMenu="filteredCategories" /> -->
 </template>
 <script>
@@ -25,28 +25,7 @@ export default {
     };
   },
 
-  computed: {
-    filteredCategories: {
-      get() {
-        return this.cardsMenu;
-      },
-      set() {
-        this.cardsMenu = data;
-        const results = this.cardsMenu.filter((cardMenu) => {
-          if (this.type === "filter") {
-            return cardMenu.category === this.str;
-          } else {
-            return cardMenu.title
-              .toLowerCase()
-              .includes(this.str.toLowerCase());
-          }
-        });
-        this.cardsMenu = results;
-      },
-    },
-  },
-
-  /*methods: {
+  methods: {
     filterCategories(catName) {
       this.resetCardsMenu();
       if (catName !== "All") {
@@ -64,7 +43,7 @@ export default {
     resetCardsMenu() {
       this.cardsMenu = data;
     },
-  },*/
+  },
 };
 </script>
 <style scoped>
