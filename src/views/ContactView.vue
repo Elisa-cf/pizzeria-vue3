@@ -1,5 +1,16 @@
 <template>
-  <div class="contact">
-    <h1>This is the contact page</h1>
-  </div>
+  <FindUs />
+  <ContactIcons />
 </template>
+
+<script>
+import FindUs from "../components/FindUs.vue";
+import ContactIcons from "../components/ContactIcons.vue";
+export default {
+  name: "ContactView",
+  components: {
+    FindUs,
+    ContactIcons,
+  },
+};
+</script>

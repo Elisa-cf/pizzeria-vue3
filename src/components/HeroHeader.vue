@@ -5,7 +5,8 @@
         <h1>Authentic Italian Pizza</h1>
         <h3>In the heart of Munich</h3>
         <router-link :to="{ name: 'menu' }">
-          <Button text="order now" />
+          <Button>order now</Button>
+          <!-- <Button text="order now" /> -->
         </router-link>
       </div>
     </section>

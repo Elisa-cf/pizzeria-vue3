@@ -1,10 +1,11 @@
 <template>
-  <button class="btn">{{ text }}</button>
+  <!-- <button class="btn">{{ text }}</button> -->
+  <button class="btn"><slot>I'm a default slot</slot></button>
 </template>
 
 <script>
 export default {
-  props: ["text"],
+  //props: ["text"],
 };
 </script>
 

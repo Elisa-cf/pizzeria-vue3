@@ -1,6 +1,7 @@
 <template>
   <div class="article-wrapper">
     <article>
+      <Button></Button>
       <h1>Original dishes, with the most authentic Italian flavour.</h1>
       <p>
         An extensive menu with authentic dishes but with our own touch of
@@ -10,7 +11,8 @@
         every dish.
       </p>
       <router-link :to="{ name: 'menu' }">
-        <Button text="our menu" />
+        <Button>our menu</Button>
+        <!-- <Button text="our menu" /> -->
       </router-link>
     </article>
     <div class="img-container">
@@ -26,7 +28,11 @@
         we invite you to do so and let us make you travel through the senses.
       </p>
       <router-link :to="{ name: 'about' }">
-        <Button text="our story" />
+        <Button style="background-color: red"
+          >our story
+          <font-awesome-icon icon="fa-solid fa-heart" />
+        </Button>
+        <!-- <Button text="our story" /> -->
       </router-link>
     </article>
     <div class="img-container">

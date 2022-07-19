@@ -46,30 +46,30 @@ export default {
 .main-nav {
   background-color: rgba(11, 16, 21, 0.9);
 }
-
+.links-container {
+  height: 1;
+  overflow: hidden;
+  transition: all 0.3s linear;
+}
 .links a {
   font-size: 19px;
   text-transform: capitalize;
   letter-spacing: 0.1rem;
   display: block;
   padding: 0.5rem 1rem;
-  transition: all 0.3s linear;
+  transition: all 0.1s linear;
   color: white;
   font-weight: bold;
   text-decoration: none;
 }
 .links a:hover {
   color: white;
-  padding-left: 1.5rem;
+  /* padding-left: 1.5rem; */
 }
 .links a:visited {
   list-style: none;
 }
-.links-container {
-  height: 1;
-  overflow: hidden;
-  transition: all 0.3s linear;
-}
+
 .show-container {
   height: 10rem;
 }
@@ -80,7 +80,7 @@ export default {
   .main-nav {
     display: grid;
     grid-template-columns: auto 1fr auto;
-    align-items: center;
+    align-items: baseline;
     padding: 1rem;
   }
 
@@ -100,8 +100,10 @@ export default {
     font-size: 25px;
   }
   .links a:hover {
-    padding: 0;
-    background: transparent;
+    /* padding: 0; */
+    /* background: transparent; */
+    background-color: #ffc500;
+    color: #23272c;
   }
   .cart-btn-wrapper {
     display: flex;
